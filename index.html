@@ -1,0 +1,61 @@
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./CSS/styles.css">
+
+<!-- import core firebase functionality -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js" defer></script>
+<!-- import firestore functinality-->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js" defer></script>
+<!-- initiate firebase with config and all that -->
+<script src="./JS/firebaseInit.js" defer></script>
+<!-- implement firebase firestore on the website -->
+<script src="./JS/userhandler.js" defer></script>
+<title>Daxoppgave</title>
+</head>
+<body>
+    <section class="main">
+<!-- The form is shown by default. It demonstrates conceptual login functinality-->
+<form id="loginform">
+<h1>Please log in!</h1>
+<input type="email" name="username" id="email" name="email" placeholder="Type In Your Username">
+<input type="password" name="password" id="password" placeholder="Type In Your Password">
+<p class="warning hidden" name="feedback" id="feedback"></p>
+</form>
+
+<!-- This section is shown when the user is logged in -->
+<section class="counter hidden" id="countersection">
+  <div class="wrapper">
+    <span class="minus">-</span>
+    <span class="num">01</span>
+    <span class="plus">+</span>
+  </div>
+  <script>
+   const plus = document.querySelector(".plus"),
+    minus = document.querySelector(".minus"),
+    num = document.querySelector(".num");
+    let a = 1;
+    plus.addEventListener("click", ()=>{
+      a++;
+      a = (a < 10) ? "0" + a : a;
+      num.innerText = a;
+    });
+
+    minus.addEventListener("click", ()=>{
+      if(a > 1){
+        a--;
+        a = (a < 10) ? "0" + a : a;
+        num.innerText = a;
+      }
+    });
+
+  </script>
+<a id="logout">Log out</a>
+</section>
+</section>
+</body>
+</html>
